@@ -31,3 +31,4 @@ SELECT
     transaction_date, 
     amount 
 FROM customer_transactions;
+[check oout my content](../README.md)
