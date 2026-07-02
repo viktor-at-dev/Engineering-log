@@ -1,0 +1,1 @@
+[Check out my understanding of the data life cycle](../data-analytics/data-ingestion-validation.md)
