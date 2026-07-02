@@ -1,5 +1,7 @@
 # Data Engineering Log: Ingestion and Validation Pipelines
 
+
+
 * **Subject:** Data Science / Data Analytics
 * **Core Focus:** Ensuring Data Integrity at the Entry Point
 
@@ -40,3 +42,13 @@ def validate_transaction_data(df: pd.DataFrame) -> bool:
         
     print("✅ Data Verification Passed: Schema matches constraints.")
     return True
+
+
+
+    ---
+
+## 🔁 Downstream Pipeline Architecture: Data Cleansing Phase
+
+Once raw payloads successfully clear the ingestion firewall and pass initial validation checks, they are immediately routed to our centralized processing module. This layer handles structural transformations, text processing, and deep algorithmic standardization.
+
+* 🛠️ **Next Architectural Phase:** [Access Centralized Data Cleansing & Processing Registry](./data-cleaning.md) — *Focus: Regex pattern matching, noise reduction, and data standardisation.*
