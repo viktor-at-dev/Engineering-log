@@ -87,4 +87,18 @@ Usage: tailwindcss [--input input.css] [--output output.css]
 ```
 ### despite using documentation steps `npx tailwind css init -p`
 ## CAUSE: in the modern tailwind package init was no longer viable
-## FIX:
+## FIX:`npm install @tailwindcss/vite`
+### In the eslint config folder: 
+```
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite' // Native v4 Compiler
+
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss(), // Injected into the Vite build step
+  ],
+})
+```
+## In the css: `@import tailwindcss`
