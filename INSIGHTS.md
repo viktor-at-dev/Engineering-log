@@ -37,3 +37,6 @@ If you wrap a hook in a conditional statement and that condition evaluates to `f
 Because the conditional hook didn't execute, every single subsequent hook shifts up by an index of $-1$. React’s internal pointer tracking is now misaligned. It reads the memory state of `Hook 2` but attempts to assign it to `Hook 1`. 
 
 In React, this breaks application integrity entirely and triggers an execution error. In low-level C programming, this unexpected structural shift and reading from incorrect memory boundaries is exactly what leads to a **Segmentation Fault (SIGSEGV)**.
+---
+# DATA  ANALYSIS
+## WHY CAN'T WE USE A FORMULAE IN THE SAME CELL OF ACTION OR COLUMN IN AN INFINITE FORMULAE
