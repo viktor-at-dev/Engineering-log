@@ -39,5 +39,7 @@ Database engines and storage schemas depend on predictable data sizes to run opt
 >
 > By automating the transformation layer, I reduce data latency, lower cloud compute overhead, and guarantee data fidelity for downstream consumption.
 
+`ARRAYFORMULAE`: This is the formulae that allows formulaes that were built to only work on one cell to be  able to process range, example, regular expressions can only process one function but with the array formulae you can input a range in it and it will work
+In cleaning we can encounter
 ---
 [⬅️ Back to Main Dashboard](../README.md) | [📥 View Ingestion Pipeline](./data-ingestion-validation.md)
