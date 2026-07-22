@@ -102,3 +102,28 @@ export default defineConfig({
 })
 ```
 ## In the css: `@import tailwindcss`
+* **incident id:4**
+* **environment:wsl(ubuntu)**
+* **severity:moderately concerning**
+* **core focus:POSIX shortcuts and virtual environment standardizing**
+
+**Symptom**: Failure of a venv file path to link in a jupyter environment
+
+**Cause**: 
+  There was clutter(creating a new venv environment even though one existed already) when handling files between windows and linux systems
+  **FIX**:
+  ```  
+rm -rf projects/
+### purpose remove the directory and its files 
+  1 rm= remove the directory
+  2 -r= recursive flag, remove the folders contents completly
+  3 f = ignore linux permissions
+
+# 2. Centralize and standardize the active virtual environment at the user root
+python3 -m venv ~/data-science/venv
+source ~/data-science/venv/bin/activate
+
+# 3. Utilize absolute expansion shortcuts (~) for direct workspace navigation
+mkdir -p ~/sql_workspace
+cd ~/sql_workspace```
+  1 ~ = takes you to your home directory
