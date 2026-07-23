@@ -102,7 +102,7 @@ export default defineConfig({
 })
 ```
 ## In the css: `@import tailwindcss`
-* **incident id:4**
+* **incident id:5**
 * **environment:wsl(ubuntu)**
 * **severity:moderately concerning**
 * **core focus:POSIX shortcuts and virtual environment standardizing**
@@ -125,5 +125,10 @@ source ~/data-science/venv/bin/activate
 
 # 3. Utilize absolute expansion shortcuts (~) for direct workspace navigation
 mkdir -p ~/sql_workspace
-cd ~/sql_workspace```
+cd ~/sql_workspace
   1 ~ = takes you to your home directory
+  ```
+* **incident id**:5
+* **environment**:wsl(ubuntu)
+* **severity**:low
+* **problem**:
