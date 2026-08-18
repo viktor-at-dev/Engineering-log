@@ -66,3 +66,10 @@ If you input a function into a cell that is also serving as the raw input for th
        ▲                                 │
        │                                 │
        └──────────(Writes Back To)───────┘
+```
+# Compiler commands
+`gcc -O2 main.c canvas.c -o draw_line`
+it is a compiler command that tells the C compiler to run a project how it works
+`gcc`:refers to the compiler
+`-02`:tells the compiler to optimixe its running process with a degree of level 2
+`fileName`:refer to the name of ones file
