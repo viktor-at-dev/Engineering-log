@@ -73,3 +73,4 @@ it is a compiler command that tells the C compiler to run a project how it works
 `gcc`:refers to the compiler
 `-02`:tells the compiler to optimixe its running process with a degree of level 2
 `fileName`:refer to the name of ones file
+`name_of_new_file`:you can create a new line from the terminal command.
