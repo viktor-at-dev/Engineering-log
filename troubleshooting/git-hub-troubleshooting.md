@@ -14,3 +14,4 @@ git remote add origin https://github.com/your-username/your-repo-name.git
 ```
 # 2. Force-establish the upstream tracking relationship during the first push sequence
 `git push -u origin main`
+When the content in git hub use `git pull --rebase` rebase practicallly links the data in the cloud with that of the local developers
