@@ -132,3 +132,47 @@ cd ~/sql_workspace
 * **environment**:wsl(ubuntu)
 * **severity**:low
 * **problem**:
+
+
+## Troubleshooting: Resolving WSL2 Read-Only Filesystem Lock
+
+### Problem Overview
+Attempts to save or modify files in VS Code and terminal failed with a `Read-only file system` error. Inspection of file permissions (`ls -l`) showed standard user ownership (`rwxr-xr-x`), indicating the issue was enforced at the filesystem/mount level rather than standard POSIX permissions.
+
+### Root Cause Analysis
+Examination of `findmnt` and `dmesg` kernel logs revealed:
+1. **Mount State:** The root partition (`/dev/sdd`) was operating under the `emergency_ro` flag.
+2. **Metadata Corruption:** Ext4 metadata corruption occurred on `inode #22282` (`systemd-journal` block):
+   ```text
+   EXT4-fs error (device sdd): ext4_find_extent:944: inode #22282... invalid magic
+   Aborting journal on device sdd-8.
+   EXT4-fs (sdd): Remounting filesystem read-only
+
+   Remediation & Fix Steps
+Step 1: Terminate WSL Instance
+Shut down the virtual machine from host PowerShell to release drive locks and unmount /dev/sdd:
+
+PowerShell
+`wsl --shutdown`
+Step 2: Perform Offline Filesystem Repair
+Launch a root shell to execute e2fsck on the unmounted block device:
+
+PowerShell
+wsl -u root e2fsck -fy /dev/sdd
+Actions Performed: Cleared invalid JBD2 journal checksum errors, purged corrupted orphan inode #22282, and corrected block bitmap counts across affected groups.
+
+Step 3: Refresh Editor Server Session
+Relaunch WSL instance (wsl).
+
+Terminate background editor server instances holding stale file handles:
+
+## Bash
+`pkill -f vscode-server`
+Restart VS Code to re-establish a active connection under the restored read-write (rw) mount.
+
+## Verification
+Run a non-destructive write test in the terminal:
+
+Bash
+`touch test_rw.txt && rm test_rw.txt`
+Confirm findmnt / output shows rw,relatime,data=ordered without emergency_ro or ro flags.
